@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&family=Roboto&display=swap');
+.roboto-regular {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .open-sans-{
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight:400;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100; 
+  }
+  .oleo-script-swash-caps-regular {
+    font-family: "Oleo Script Swash Caps", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }
+:root{
+    --dark-chocolate:#603936;
+    --dark-red:#E63946;
+    --light-color:#FFF9C6;
+    --dark-blue:#011627;
+}
+*{
+    padding:0;
+    margin:0;
+    box-sizing:0;
+}
+
+body{
+    font-family: "Open Sans", sans-serif;
+    font-variation-settings:"wdth" 100; 
+}
+/* Navigation Bar start */
+.nav-container{
+    margin:40px 107px;
+    font-weight: bold;
+    display: flex;
+    justify-content:space-between;
+    width:1300px;
+    height:46px;
+}
+.nav-container nav ul {
+    display: flex;
+    width:662px;
+    height:38px;
+    align-items: center;
+    justify-content: space-between;
+}
+ nav ul li{
+    list-style-type: none;
+}
+nav ul li a{
+    text-decoration:none;
+    color:var(--dark-blue);
+}
+.nav-container ul li a.contact-btn{
+    border: 1px solid black;
+    padding:5px 14px;
+    border-radius:8px;
+    transition:all 390ms;
+}
+ul li a.active{
+    color:var(--dark-red);
+}
+ul li a.contact-btn:hover{
+    background-color: var(--dark-red);
+    color:var(--light-color);
+}
+/* Navigation Bar end */
+/* Hero Seciton start */
+.hero-container{
+    display:flex;
+    height:calc(100vh - 200px);
+    align-items: center;
+    justify-content: space-between;
+    width:1152px;
+    position:relative;
+    left:30px;
+}
+.hero-image .circle-ground{
+    width:330px;
+    height:100px;
+    border-radius:50%;
+    background-color:var(--light-color);
+    position:absolute;
+    bottom:100px;
+    left:40px;
+    z-index:-99;
+    box-shadow: 0px 5px 15px 15px rgba(0,0,0,0.3);
+}
+.hero-text-container{
+   width:500px;
+}
+.hero-text-container h1{
+    font-family: "Oleo Script Swash Caps", system-ui;
+    font-size:52px;
+}
+.hero-text-container p{
+    margin-top:30px;
+    margin-bottom:20px;
+    line-height: 30px;
+}
+.hero-text-container button{
+    background-color:var(--dark-chocolate);
+    color:var(--light-color);
+    padding:15px 30px;
+    border-radius: 10px;
+    border: 1px solid var(--dark-chocolate);
+    transition:all 400ms;
+    cursor:pointer;
+    position:relative;
+}
+.hero-text-container button:hover{
+    background-color: var(--light-color);
+    color:var(--dark-chocolate);
+}
+/* Hero Seciton end */
+/* Social Section start */
+.social-container{
+    position:absolute;
+    width:264px;
+    right:90px;
+}
+.social-icons{
+    margin-right:35px;
+}
+.social-container a img{
+    transition:all 300ms;
+}
+.social-container a img:hover{
+    transform: scale(1.2);  
+} 
+/* Social Section end */
+/* Background Section start */
+.right-bg{
+      position: absolute;
+      bottom:0px;
+      right:0px;
+      z-index:-100;
+}
+.left-bg{
+    position:absolute;
+    top:0px;
+    z-index: -100;
+    height:100vh;
+}
+
+/* Background Section end */
+/* Animation Section start */
+.left-bg,.left-bg-mobile{
+    animation:moveLeftBg 1s ease-in-out;
+}
+@keyframes moveLeftBg {
+    0% {
+        transform: translateX(-100%); 
+    }
+}
+.hero-text-container h1,
+.hero-text-container p,.hero-text-container button{
+    animation:moveText 2s backwards ease-in-out;
+    
+}
+.hero-text-container p{
+    animation-delay: 250ms;
+}
+.hero-text-container button{
+    animation-delay:500ms;
+}
+@keyframes moveText{
+    0%{
+        transform:translateY(-80px);
+        opacity:0;
+    }
+    100%{
+        transform:translateY(0);
+        opacity: 1;
+    }
+}
+/* Animation section end */
+/* For Mobile Display */
+.mobile-menu-page,
+.logo-for-mobile,
+.left-bg-mobile{
+   position:fixed;
+   top:0px;
+   opacity: 0;
+}
+.menu-cross-icon,
+.menu-icon{
+    display:none;
+}
+.right-bg-mobile{
+    display: none;
+}
+@media (max-width:600px){
+.nav-container,
+.circle-ground,.bg-img-container
+{
+    display:none;
+}
+.mobile-menu-page{
+    opacity: 0;
+    width:100%;
+    height:100%;
+    background-color: var(--light-color);
+    z-index: 100;
+}
+.mobile-menu-page.active{
+    opacity: 1;
+    /* pointer-events: auto; */
+}
+.left-bg-mobile{
+    position:fixed;
+    opacity: 1;
+    top:0px;
+    left:0px;
+    z-index: 150;
+}
+.right-bg-mobile{
+    position:fixed;
+    bottom:-50px;
+    right:-25px;
+    /* pointer-events:none; */
+    display:block;
+}
+.menu-icon,.menu-cross-icon{
+    width:100px;
+    height:100px;
+    position:fixed;
+    top:0;
+    right:0;
+    z-index: 150;
+    display:block;
+}
+.menu-cross-icon{
+    display: none;
+}
+.menu-cross-icon.active{
+    display: block;
+}
+.logo-for-mobile{
+    margin:28px;
+    position:fixed;
+    top:0;
+    opacity:1;
+    z-index: 200;
+}
+.hero-container{
+    width:300px;
+    flex-direction: column;
+    left:20px;
+    top:100px;
+    height:auto;
+    /* pointer-events:auto; */
+}
+.hero-image{
+    width:100%;
+}
+.hero-image img{
+   width:250px;
+   height:250px;
+   position:relative;
+   left: 80px;
+}
+.hero-text-container{
+    text-align: center;
+    width:100%;
+}
+.hero-text-container h1{
+   font-size:28px;
+   margin-left:45px;
+   width:230px;
+}
+.hero-text-container p{
+    width:300px;
+    font-size:16px;
+    margin-left: 20px;
+    margin-top: 15px;
+}
+.hero-text-container button{
+    margin-left: 20px;
+    z-index: 100;
+}
+.social-container{
+   right:30px;
+   bottom:20px;
+   z-index: 100;
+}
+
+.mobile-menu-page nav ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:200px;
+    height:280px;
+    justify-content: space-around;
+    margin-left:80px;
+    margin-top:180px;
+    font-family:"Roboto", sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+}
+}
+/* For Mobile Display */
